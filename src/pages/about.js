@@ -27,6 +27,7 @@ var index = React.createClass({
     return (
       <SiteBoilerPlate>
         <Banner bannerMessage="About Us"/>
+        <a href="/">Go home</a>
       </SiteBoilerPlate>
     );
   }

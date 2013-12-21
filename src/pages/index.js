@@ -16,26 +16,21 @@
  * @jsx React.DOM
  */
 
+var Banner = require('../elements/Banner/Banner.js');
 var React = require('React');
+var SiteBoilerPlate = require('../core/SiteBoilerPlate.js');
+var VectorWidget = require('../elements/VectorWidget/VectorWidget.js');
 
-var Router = require('route-recognizer/dist/route-recognizer.cjs.js').default;
-var index = require('./pages/index');
-var about = require('./pages/about');
-
-var root = React.createClass({
-  componentWillMount: function() {
-    this.router = new Router();
-    this.router.add([
-      {path: '/', handler: index}
-    ]);
-    this.router.add([
-      {path: '/about', handler: about}
-    ]);
-  },
+var index = React.createClass({
   render: function() {
-    var page = this.router.recognize(this.props.initialPath)[0].handler;
-    return page();
+    return (
+      <SiteBoilerPlate>
+        <Banner bannerMessage="Welcome to React"/>
+        <a href="/about">About us</a>
+        <VectorWidget />
+      </SiteBoilerPlate>
+    );
   }
 });
 
-module.exports = root;
+module.exports = index;
